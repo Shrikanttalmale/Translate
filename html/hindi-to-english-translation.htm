@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OnlyTool</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="icon" href="favicon.png">
+  <script async src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+
+
+      <script>
+
+// Prevent forms from submitting.
+function preventFormSubmit() {
+        var forms = document.querySelectorAll('form');
+        for (var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener('submit', function(event) {
+            event.preventDefault();
+          });
+        }
+      }
+     // window.addEventListener('load', preventFormSubmit);
+
+
+      function handleFormSubmit(formObject) {
+        google.script.run.withSuccessHandler(onSuccess).translate(formObject);
+      }
+
+      function onSuccess(numUnread) {
+        var div = document.getElementById('txtOutputLang');
+        div.innerHTML =  numUnread;
+      }
+
+ 
+      </script>
+
+
+<script type="text/javascript">
+
+
+      // Load the Google Transliteration API
+      google.load("elements", "1", {
+        packages: "transliteration"
+      });
+    
+      function onLoad() {
+        var options = {
+          sourceLanguage: 'en',
+          destinationLanguage: ['gu', 'ml', 'hi', 'kn', 'ta', 'te'],
+          shortcutKey: 'ctrl+m',
+          transliterationEnabled: true
+        }
+    
+        // Create an instance on TransliterationControl with the required options.
+        var control = new google.elements.transliteration.TransliterationControl(options);
+    
+        // Enable transliteration in the textfields with the given ids.
+        var ids = ["language"];
+        control.makeTransliteratable(ids);
+    
+        // Show the transliteration control which can be used to toggle between English and Hindi and also choose other destination language.
+        control.showControl('translControl');
+      }
+    
+      //google.setOnLoadCallback(onLoad);
+</script>
+
+
+<!-- <script>
+  function onFailure(error) {
+    var div = document.getElementById('output');
+    div.innerHTML = "ERROR: " + error.message;
+  }
+
+  google.script.run.withFailureHandler(onFailure)
+      .getUnreadEmails();
+</script> -->
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-container container">
+        <input type="checkbox" name="" id="">
+        <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+        <ul class="menu-items">
+         <!-- <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Testimonial</a></li>
+            <li><a href="#">Contact</a></li>-->  
+        </ul>
+        <h1 class="logo">Only Tool</h1>
+    </div>
+</nav>
+
+  
+ 
+
+  <div style="height: 100px;">
+
+  </div>
+  
+  <div style="text-align: center;">
+  <h2 >Translate Hindi to English </h2>
+  <h2 >हिंदी से अंग्रेज़ी अनुवाद </h2>
+  
+</div>
+
+<form id="myForm" ></form>
+
+  <table cellspacing="0" cellpadding="5" align="center">
+
+    <tr style="display: none;">
+
+      <td>
+        <select id="ddlSrcLang" name="source_lang">
+          <option value="hi">Hindi</option>
+          <option value="auto">Auto Detect</option>
+          <option value="en">English</option>
+         </select>
+
+         <select id="ddlTargetLang" name="target_lang">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+         </select>
+
+      </td>
+
+     <!-- <td>
+        <select id="ddlTargetLang" name="target_lang">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+         </select>
+      </td> -->
+    </tr>
+
+
+
+    <tr >
+      <td><textarea id="txtInputLang" 
+        rows="10" cols="100" placeholder="यहाँ लिखें"></textarea>
+      </td>
+     
+    </tr>
+
+
+      <!-- Translate  & clear Button -->
+    <tr >
+      
+      <td style="text-align: center;">
+       <!--  <input type="submit" value="Translate re">-->
+        <button id="btnTranslate" class="button" value="Submit" type="button">अनुवाद / Translate</button>
+        <button id="btnClear" class="button" type="button">Clear</button>
+      </td>
+     
+    </tr>
+
+         <!-- Translate Test -->
+
+         <tr>
+          <td><textarea  id="txtOutputLang" 
+            rows="10" cols="100" placeholder="Translation"></textarea></td>
+
+         </tr>
+
+          <!-- Copy & Read  -->
+
+          <tr>
+            <td style="text-align: center;">
+              <button class="button" id="speak-button">Read</button>
+              <button class="button"  onclick="copyText()" id="btCopy">Copy</button>
+      
+            </td>
+          </tr>
+
+
+
+  </table>
+
+
+
+   <!-- Links table -->
+   <table cellspacing="0" cellpadding="5" align="center">
+     <tr>
+
+      <td>
+        <b><a href="english-to-hindi-translation.htm" target="_blank">English To Hindi</a></b>
+      </td>
+
+      <td>
+        <b><a href="hindi-to-english-translation.htm" target="_blank">Hindi To English</a></b>
+      </td>
+
+
+     </tr>
+   </table>
+
+
+</form>
+
+  <script>
+  function togglemenu() {
+    var x = document.getElementById("nav");
+    if (x.className === "nav") {
+      x.className += " nav--open";
+    } else {
+      x.className = "nav";
+    }
+    var element = document.getElementById("menu-toggle");
+    element.classList.toggle("menu-toggle--open");
+  }
+  </script>
+  <script src="../js/translate.js"></script>
+  <script src="../js/talk.js"></script>
+  <script src="../js/utilities.js"></script>
+</body>
+</html>
