@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" href="favicon.png">
+  <script async src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+ 
+  <div style="height: 100px;">
+
+  </div>
+  
+  <div style="text-align: center;">
+  <h1 >Translate English to Hindi | Translate Hindi to English</h1>
+  <h1 >अंग्रेज़ी से हिंदी अनुवाद | हिंदी से अंग्रेज़ी अनुवाद </h1>
+  
+</div>
+
+ <form method="post" action="https://script.google.com/macros/s/AKfycbzeKgLSLmW_MlebiwTjlsUj_WbVr-WMSxshcL-p1F61TAS8jSfkr4Lzi0zh43h3Wi7BKQ/exec">
+  
+
+     <b>Source Language</b><br>
+     <select name="source_lang">
+      <option value="auto">Auto Detect</option>
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+     </select></br>
+
+     <b>Target Language</b><br>
+     <select name="target_lang">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+     </select></br>
+
+      <b>Text</b><br>
+       <textarea rows="10" cols="50" name="text"></textarea><br>
+        <input type="submit" value="TRANSLATE" >
+      
+
+</form>
+
+
+  <script>
+  function togglemenu() {
+    var x = document.getElementById("nav");
+    if (x.className === "nav") {
+      x.className += " nav--open";
+    } else {
+      x.className = "nav";
+    }
+    var element = document.getElementById("menu-toggle");
+    element.classList.toggle("menu-toggle--open");
+  }
+  </script>
+  <script src="../js/translate.js"></script>
+</body>
+</html>
