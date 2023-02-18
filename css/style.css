@@ -62,10 +62,11 @@
     order: 2;
     display: flex;
 }
+
 .logo{
     order: 1;
     font-size: 2.3rem;
-     color: white;
+    color: white;
 }
 
 .menu-items li{
