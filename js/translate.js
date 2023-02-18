@@ -16,6 +16,8 @@ const settings = {
 
 
 $("#btnTranslate").click(function(){
+	
+	$('.loadingImg').show();
 
 	var sourceLang = $('#ddlSrcLang').find(":selected").val();
 	var targetLang = $('#ddlTargetLang').find(":selected").val();
@@ -36,6 +38,8 @@ $("#btnTranslate").click(function(){
 
 			$("textarea#txtOutputLang").val(finalText);
 			$("textarea#txtOutputLang").focus();
+			
+			$('.loadingImg').hide();
 		},
 		error: function () {
 			alert("error");
