@@ -41,8 +41,12 @@ function copyText() {
             success: function (response) {
               var translatedText = response[1][0][1][0];
 
+          if(translatedText !=undefined)
+              {
+
             var newText = $("textarea.hindiTxtbox").val().replace(lastWord, translatedText);
             $("textarea.hindiTxtbox").val(newText);
+              }
              
 
             },
