@@ -35,6 +35,7 @@ $("#btnTranslate").click(function(){
 			
 
 			$("textarea#txtOutputLang").val(finalText);
+			$("textarea#txtOutputLang").focus();
 		},
 		error: function () {
 			alert("error");
